@@ -36,3 +36,24 @@
     --md-accent-fg-color: #1C6Cc6;
     --md-typeset-a-color: #1C6Cc6;
 }
+
+@media print {
+    /* for mkdocs-with-pdf to print with purple instead of red 
+    https://github.com/orzih/mkdocs-with-pdf/issues/153#issuecomment-2419403452 */
+    article h1, article h2, article h3 {
+        border-bottom-color: #7855FA !important;
+    }
+    /* fix admonition icon overlap 
+    https://github.com/orzih/mkdocs-with-pdf/issues/161#issuecomment-2449745011 */
+    .md-typeset :is(.admonition-title,summary):before {
+      top: 0.6rem;
+      left: 0.6rem;
+    }    
+}
+
+/* fix for code samples not showing up in pdf 
+https://github.com/orzih/mkdocs-with-pdf/issues/117 */
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
